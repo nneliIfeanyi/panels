@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; 
 
-if (empty($data['user']->photo) || empty($data['user']->region) || empty($data['user']->address)) 
+if (!empty($data['user']->region) || !empty($data['user']->address)) 
 {
   // echo "Incomplete user profile, use this <a href='profiles'>link</a> to continue.";
   ?>
