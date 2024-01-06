@@ -145,7 +145,6 @@
               // Validation passed...
               //Execute
               if($this->postModel->addPost2($data)){
-                move_uploaded_file($photo_tmp, $file_path2);
                 // Redirect to login
                 flash('post_added', 'Post Added');
                 redirect('posts');

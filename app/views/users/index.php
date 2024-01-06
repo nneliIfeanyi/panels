@@ -66,6 +66,7 @@
                 </div>
                 <?php endforeach; ?>
             </div>
+            <div class="fs-6 fs-italics text-center mb-2">...</div>
         </div>
     </main>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
