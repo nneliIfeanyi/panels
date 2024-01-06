@@ -280,9 +280,25 @@
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //Execute
         if($this->postModel->deletePost($id)){
-          // Redirect to login
+       
           flash('post_message', 'Post Removed');
           redirect('posts');
+          } else {
+            die('Something went wrong');
+          }
+      } else {
+        redirect('posts');
+      }
+    }
+
+    // Delete Post likes
+    public function unlike($id){
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //Execute
+        if($this->postModel->deleteLike($id)){
+         
+          flash('like_msg', 'Post Unliked..');
+          redirect('posts/show/'.$id);
           } else {
             die('Something went wrong');
           }

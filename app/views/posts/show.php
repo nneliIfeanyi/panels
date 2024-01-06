@@ -32,8 +32,11 @@
       <p><?php echo $data['post']->body; ?></p>
       <div class="d-flex justify-content-start">
         <div class="btn-group">
-          <form class="me-3" action="<?php echo URLROOT; ?>/posts/likes/<?php echo $data['post']->id; ?>" method="post">
+          <form class="me-1" action="<?php echo URLROOT; ?>/posts/likes/<?php echo $data['post']->id; ?>" method="post">
             <button type="submit" class="btn btn-sm"><i class="text-primary fa fa-thumbs-up" aria-hidden="true"></i> Likes</button><sup class="badge bg-secondary"><?php echo $data['likes']?></sup>
+          </form>
+          <form class="me-3" action="<?php echo URLROOT; ?>/posts/unlike/<?php echo $data['post']->id; ?>" method="post">
+            <button type="submit" class="btn btn-sm"><i class="text-primary fa fa-thumbs-down" aria-hidden="true"></i> Unlike</button>
           </form>
           <a href="<?php echo URLROOT;?>/users" class="btn btn-sm"><i class="fa fa-comment text-primary" aria-hidden="true"></i> Comment</a>
           <a class="btn btn-sm" href="<?php echo URLROOT; ?>/#"><i class="fa fa-phone text-primary" aria-hidden="true"></i> Call <?php echo $data['user']->name; ?></a>

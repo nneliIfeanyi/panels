@@ -166,4 +166,21 @@
         return false;
       }
     }
+
+    // Delete Post likes
+    public function deleteLike($id){
+      // Prepare Query
+      $this->db->query('DELETE FROM likes WHERE user_id = :u_id AND post_id = :p_id');
+
+      // Bind Values
+      $this->db->bind(':p_id', $id);
+      $this->db->bind(':u_id', $_SESSION['user_id']);
+      
+      //Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
