@@ -16,7 +16,7 @@
 
             if (!empty($data['post']->post_img)) {
               ?>
-                <img src="<?php echo URLROOT.'/'. $data['post']->post_img;?>" height="200" class="card-img-top" alt="Post-image">
+                <img src="<?php echo URLROOT.'/'. $data['post']->post_img;?>" class="card-img-top img-fluid" alt="Post-image">
               <?php
             }
 

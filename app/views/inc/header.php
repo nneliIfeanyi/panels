@@ -11,4 +11,4 @@
 </head>
 <body>
   <?php require APPROOT . '/views/inc/navbar.php'; ?>
-  <div class="container">
+  <div class="container" style="margin-top: 110px;">
