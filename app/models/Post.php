@@ -124,13 +124,12 @@
     //Put likes
     public function putLike($data)
     {
-      $this->db->query('INSERT INTO likes (post_id, user_id, liked) 
-      VALUES (:p_id, :u_id, :liked)');
+      $this->db->query('INSERT INTO likes (post_id, user_id) 
+      VALUES (:p_id, :u_id)');
 
       // Bind Values
       $this->db->bind(':p_id', $data['post_id']);
       $this->db->bind(':u_id', $data['user_id']);
-      $this->db->bind(':liked', $data['liked']);
       
       //Execute
       if($this->db->execute()){

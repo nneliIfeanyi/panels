@@ -42,8 +42,7 @@
 
           $data=[
             'post_id' => $id,
-            'user_id' => $_SESSION['user_id'],
-            'liked' => 'liked'
+            'user_id' => $_SESSION['user_id']
           ];
 
           if ($this->postModel->checkLike($id))
@@ -294,14 +293,20 @@
     // Delete Post likes
     public function unlike($id){
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        //Execute
-        if($this->postModel->deleteLike($id)){
-         
-          flash('like_msg', 'Post Unliked..');
+
+        if (!$this->postModel->checkLike($id)) {
+          flash('like_msg', 'You already unliked this post');
           redirect('posts/show/'.$id);
-          } else {
-            die('Something went wrong');
-          }
+        }else{
+        //Execute
+          if($this->postModel->deleteLike($id)){
+           
+            flash('like_msg', 'Post Unliked..');
+            redirect('posts/show/'.$id);
+            } else {
+              die('Something went wrong');
+            }
+        }
       } else {
         redirect('posts');
       }
