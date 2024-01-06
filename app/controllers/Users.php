@@ -44,7 +44,7 @@
           'email' => trim($_POST['email']),
           'password' => trim($_POST['password']),
           'confirm_password' => trim($_POST['confirm_password']),
-          'photo' => 'img/avatar_guy.png',
+          'photo' => 'pics/avatar_guy.png',
           'name_err' => '',
           'email_err' => '',
           'password_err' => '',
