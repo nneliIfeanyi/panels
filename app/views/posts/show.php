@@ -9,7 +9,9 @@
   </div>
   <div class="row mb-5">
     <div class="col-md-9 mx-auto">
+      <?php flash('like_msg'); ?>
       <div class="card">
+
         <?php 
 
             if (!empty($post->post_img)) {
@@ -30,7 +32,9 @@
       <p><?php echo $data['post']->body; ?></p>
       <div class="d-flex justify-content-start">
         <div class="btn-group">
-          <a class="btn btn-sm" href="<?php echo URLROOT; ?>/posts"><i class="text-primary fa fa-thumbs-up" aria-hidden="true"></i> Like</a>
+          <form class="me-3" action="<?php echo URLROOT; ?>/posts/likes/<?php echo $data['post']->id; ?>" method="post">
+            <button type="submit" class="btn btn-sm"><i class="text-primary fa fa-thumbs-up" aria-hidden="true"></i> Likes</button><sup class="badge bg-secondary"><?php echo $data['likes']?></sup>
+          </form>
           <a href="<?php echo URLROOT;?>/users" class="btn btn-sm"><i class="fa fa-comment text-primary" aria-hidden="true"></i> Comment</a>
           <a class="btn btn-sm" href="<?php echo URLROOT; ?>/#"><i class="fa fa-phone text-primary" aria-hidden="true"></i> Call <?php echo $data['user']->name; ?></a>
         </div>

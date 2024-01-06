@@ -26,13 +26,48 @@
     public function show($id){
       $post = $this->postModel->getPostById($id);
       $user = $this->userModel->getUserById($post->user_id);
-
+      $pull = $this->postModel->pull($id);
       $data = [
         'post' => $post, 
-        'user' => $user
+        'user' => $user,
+        'likes' => $pull
       ];
 
       $this->view('posts/show', $data);
+    }
+
+    //Post likes
+    public function likes($id){
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+          $data=[
+            'post_id' => $id,
+            'user_id' => $_SESSION['user_id'],
+            'liked' => 'liked'
+          ];
+
+          if ($this->postModel->checkLike($id))
+          {
+            flash('like_msg', 'You already liked this post');
+            redirect('posts/show/'.$id);
+          }
+          else
+          {
+            $this->postModel->putLike($data);
+            redirect('posts/show/'.$id);
+          }
+        
+
+      }else{
+
+        $pull = $this->postModel->pull($id);
+
+        $data = [
+          'likes' => $pull, 
+        ];
+
+        $this->view('posts/show', $data);
+        }
     }
 
     // Add Post

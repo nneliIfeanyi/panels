@@ -104,6 +104,53 @@
       }
     }
 
+    // Check if like exist
+    public function checkLike($id){
+      $this->db->query("SELECT * FROM likes WHERE user_id = :u_id AND post_id = :p_id");
+
+      $this->db->bind(':u_id', $_SESSION['user_id']);
+      $this->db->bind(':p_id', $id);
+
+      $row = $this->db->single();
+
+      //Check Rows
+      if($this->db->rowCount() > 0){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    //Put likes
+    public function putLike($data)
+    {
+      $this->db->query('INSERT INTO likes (post_id, user_id, liked) 
+      VALUES (:p_id, :u_id, :liked)');
+
+      // Bind Values
+      $this->db->bind(':p_id', $data['post_id']);
+      $this->db->bind(':u_id', $data['user_id']);
+      $this->db->bind(':liked', $data['liked']);
+      
+      //Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    //pull
+    public function pull($id){
+      $this->db->query("SELECT * FROM likes WHERE post_id = :id");
+
+      $this->db->bind(':id', $id);
+      $results = $this->db->resultset();
+      if ($this->db->rowCount() > 0) {
+        return $this->db->rowCount();
+      }
+      
+    }
     // Delete Post
     public function deletePost($id){
       // Prepare Query
