@@ -194,6 +194,17 @@
       }
     }
 
+    public function update_pic(){
+      $user = $this->userModel->getUserById($_SESSION['user_id']);
+      //Set Data
+      $data = [
+        'user' => $user
+      ];
+
+      // Load homepage/index view
+      $this->view('users/update_pic', $data);
+    }
+
     // Create Session With User Info
     public function createUserSession($user){
       $_SESSION['user_id'] = $user->id;

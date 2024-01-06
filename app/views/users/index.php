@@ -40,21 +40,25 @@
             <div class="row">
             <?php foreach($data['all_users'] as $user) : ?>
                 <div class="col-md-4">
-                    <div class="card mb-3 border-light shadow" style="height: 250px;">
+                    <div class="card mb-3 border-light shadow" style="height: auto;">
                         <div class="card-body">
                             <div class="d-flex gap-3">
                                 <div class="user-img">
-                                    <img src="<?= URLROOT.'/'.$user->photo;?>" style="height: 140px;border-radius: 50%;">
+                                    <img src="<?= URLROOT.'/'.$user->photo;?>" style="height: 100px;width:95px;border-radius: 50%;">
                                 </div>
                                 <div class="user-info">
                                     <h4><?php echo $user->name ?></h4>
-                                    <h6><?php echo $user->address ?></h6>
-                                    <span class="badge bg-primary"><?php echo $user->region ?></span>
-                                    <h6><?php echo $user->phone ?></h6>
+                                    <div><span class="badge bg-primary"><i class="fa fa-phone" arai-hidden="true"></i></span>
+                                    <span class="text-secondary"> <?php echo $user->phone ?></span></div>
+                                    <div><span class="badge bg-primary"><i class="fa fa-map-marker" arai-hidden="true"></i></span>
+                                    <span class="text-secondary"> <?php echo $user->address ?></span></div>
+                                    <span class="badge bg-secondary"> <?php echo $user->region ?></span>
                                 </div>
+
                             </div>
+                             <p class="card-text text-center">Joined <?php echo $user->created_at ?></p>
                         </div>
-                        <p class="card-text text-center">Joined <?php echo $user->created_at ?></p>
+                       
                     </div>
                 </div>
                 <?php endforeach; ?>

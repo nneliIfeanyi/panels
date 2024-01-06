@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-md-6 mb-5 mx-auto">
     <div class="card card-body mt-5">
+      <?php flash('profile_msg');?>
       <h2 class="text-center">Update Profile</h2>
       <!-- Profile Pic is here below -->
       <div class="mx-auto">
@@ -11,14 +12,14 @@
       </div>
       <!-- Profile Pic ends here -->
 
-      <form action="<?php echo URLROOT; ?>/users/edit" method="post">
+      <form action="<?php echo URLROOT; ?>/profiles/complete/<?php echo $data['user']->id;?>" method="post">
         <div class="form-group mb-2">
             <label class="text-muted fs-6">User Name</label>
             <input type="text" class="form-control form-control-lg" disabled value="<?php echo $data['user']->name; ?>">
         </div>
         <div class="form-group mb-2">
             <label class="text-muted fs-6">Email</label>
-            <input type="email" name="email" class="form-control form-control-lg <?php echo (!empty($data['email'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['user']->email; ?>">
+            <input type="email" name="email" class="form-control form-control-lg disabled <?php echo (!empty($data['email'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['user']->email; ?>">
             <span class="invalid-feedback"><?php echo $data['email_err']; ?></span>
         </div> 
         <div class="form-group mb-2">
@@ -30,12 +31,9 @@
         <div class="form-group mb-4">
             <label class="text-muted fs-6">Region</label>
             <select name="region" class="form-select">
-                <option value="">----</option>
-                <option value="">Abuja</option>
-                <option value="">Oyo</option>
-                <option value="">Kogi</option>
-                <option value="">Lagos</option>
-                <option value="">Niger</option>
+                <option value="<?php echo $data['user']->region;?>"><?php echo $data['user']->region;?></option>
+                <option value="Abuja">Abuja</option>
+                <option value="Lagos">Lagos</option>
             </select>
         </div> 
         <div class="form-group mb-4">

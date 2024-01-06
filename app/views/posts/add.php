@@ -1,12 +1,12 @@
 <?php require APPROOT . '/views/inc/header.php'; 
 
-if (!empty($data['user']->region) || !empty($data['user']->address)) 
+if (empty($data['user']->region) || empty($data['user']->address)) 
 {
   // echo "Incomplete user profile, use this <a href='profiles'>link</a> to continue.";
   ?>
     <div class="row">
       <div class="col-md-6 mx-auto">
-        <p class="lead">Incomplete user profile, use this <a href="<?php echo URLROOT?>/profiles/<?php echo $data['user']->id;?>">link</a> to continue.</p>
+        <p class="lead">Incomplete user profile, use this <a href="<?php echo URLROOT?>/users/profile/<?php echo $data['user']->id;?>">link</a> to continue.</p>
       </div>
     </div>
   <?php

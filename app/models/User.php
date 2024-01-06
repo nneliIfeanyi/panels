@@ -72,4 +72,39 @@
 
       return $row;
     }
+
+    // Update user without photo change
+    public function update($data){
+      // Prepare Query
+      $this->db->query('UPDATE users SET phone = :phone, region = :region, address = :address WHERE id = :id');
+
+      // Bind Values
+      $this->db->bind(':id', $data['id']);
+      $this->db->bind(':phone', $data['phone']);
+      $this->db->bind(':region', $data['region']);
+      $this->db->bind(':address', $data['address']);
+      
+      //Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function edit_pic($data){
+      // Prepare Query
+      $this->db->query('UPDATE users SET photo = :img WHERE id = :id');
+
+      // Bind Values
+      $this->db->bind(':id', $data['id']);
+      $this->db->bind(':img', $data['image']);
+      
+      //Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
   }

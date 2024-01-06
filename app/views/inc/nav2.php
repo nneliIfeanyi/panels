@@ -7,6 +7,8 @@
 
           <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Add new post" href="<?php echo URLROOT; ?>/posts/add"><i class="fa fa-pencil" aria-hidden="true" style="color: antiquewhite;"></i></a>
 
+          <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Users" href="<?php echo URLROOT; ?>/users"><i class="fa fa-users" aria-hidden="true" style="color: antiquewhite;"></i></a>
+
           <button class="btn btn-sm" data-bs-theme-value="light" data-bs-toggle="tooltip" data-bs-title="Change to light theme">
                   <i class="fa fa-sun" aria-hidden="true" style="color: antiquewhite;"></i>
               </button>
