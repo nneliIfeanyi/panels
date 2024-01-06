@@ -19,10 +19,8 @@
       </form>
     </div>
   </div>
-  <?php foreach($data['posts'] as $post) : ?>
-    <?php 
-       $post_time = strtotime($post->created_at);
-    ?>
+  <?php foreach($data['posts'] as $post) : $post_time = strtotime($post->created_at);?>
+    
     <div class="row mb-5">
       <div class="col-md-9 mx-auto">
         <div class="card shadow border border-light mb-3" data-bs-toggle="tooltip" data-bs-title="Posted: &nbsp;<?php echo to_time_ago($post_time); ?> by <?php echo $post->name; ?>">
