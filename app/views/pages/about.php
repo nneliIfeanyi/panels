@@ -11,7 +11,7 @@
       <h1>About</h1>
       <p>This is a social network type app built to interact and share ideas..</p>
       <p>We buy and exchange phone panels, screens and other gsm parts...</p>
-      <p>App Version: <?php echo $data['version']; ?></p>
+      <p class="fw-bold">App Version: <?php echo $data['version']; ?></p>
     </div>
   </div>
 

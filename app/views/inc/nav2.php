@@ -1,6 +1,6 @@
 
 
-<div class="bottom-nav d-flex justify-content-end py-2 border-bottom border-light" style="background: rgba(0, 0, 0, 0.75);">
+<div class="bottom-nav d-flex justify-content-end py-2" style="background: rgba(0, 0, 0, 0.75);">
 
         <div class="nav-item btn-group pe-3">
           <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Homepage" href="<?php echo URLROOT; ?>/posts"><i class="fa fa-home" aria-hidden="true" style="color: antiquewhite;"></i></a>

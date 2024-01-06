@@ -1,5 +1,4 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<?php require APPROOT . '/views/inc/nav2.php'; ?>
 <div class="header mb-5">
     <div class="container mt-5">
          <h1 class="mb-3">Users</h1>
@@ -45,18 +44,17 @@
                         <div class="card-body">
                             <div class="d-flex gap-3">
                                 <div class="user-img">
-                                     <img src="<?= URLROOT.'/'.$user->photo;?>" style="height: 140px;border-radius: 50%;"></a>
+                                    <img src="<?= URLROOT.'/'.$user->photo;?>" style="height: 140px;border-radius: 50%;">
                                 </div>
                                 <div class="user-info">
                                     <h4><?php echo $user->name ?></h4>
-                                    <h6>location</h6>
-                                    <span class="badge bg-primary">software</span>
-                                    <span class="badge bg-primary">hardware</span>
-                                    <span class="badge bg-primary">Both</span>
- 
+                                    <h6><?php echo $user->address ?></h6>
+                                    <span class="badge bg-primary"><?php echo $user->region ?></span>
+                                    <h6><?php echo $user->phone ?></h6>
                                 </div>
                             </div>
                         </div>
+                        <p class="card-text text-center">Joined <?php echo $user->created_at ?></p>
                     </div>
                 </div>
                 <?php endforeach; ?>
