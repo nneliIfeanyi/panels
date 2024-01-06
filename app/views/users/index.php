@@ -56,7 +56,10 @@
                                 </div>
 
                             </div>
-                             <p class="card-text text-center">Joined <?php echo $user->created_at ?></p>
+                             <p class="lead text-center">Joined <?php echo $user->created_at ?></p>
+                             <div class="d-grid">
+                                <a class="btn btn-outline-secondary" href="#"><i class="fa fa-eye"></i> Veiw <?php echo $user->name; ?>'s Assets</a>
+                             </div>
                         </div>
                        
                     </div>
