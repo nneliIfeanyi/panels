@@ -13,13 +13,37 @@
 
     // Load All Posts
     public function index(){
-      $posts = $this->postModel->getPosts();
-      $data = [
-        'posts' => $posts
-      ];
+
+      if (isset($_POST['search']) ){
+      
+         $search_input = trim($_POST['search']);
+
+         $posts = $this->postModel->searchPosts($search_input);
+
+          $data = [
+          'title'=> 'Showing search results for "'.$search_input.'"',
+
+          'posts' => $posts
+        ];
+      
+        $this->view('posts/index', $data); 
+
+      }//end if a search request
+
+      else{
+      //load page normally  
+        $posts = $this->postModel->getPosts();
+        $data = [
+          'title' => 'Posts',
+          'posts' => $posts
+        ];
       
       $this->view('posts/index', $data);
+      }
+      
     }
+
+
 
     // Show Single Post
     public function show($id){

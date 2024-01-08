@@ -21,6 +21,20 @@
       return $results;
     }
 
+     // Get search results
+    public function searchPosts($search_input){
+      $this->db->query("SELECT *, posts.id as postId, 
+                        users.id as userId
+                        FROM posts 
+                        INNER JOIN users 
+                        ON posts.user_id = users.id
+                        WHERE body LIKE '%$search_input%' ");
+
+      $results = $this->db->resultset();
+
+      return $results;
+    }
+
     // Get Post By ID
     public function getPostById($id){
       $this->db->query("SELECT * FROM posts WHERE id = :id");

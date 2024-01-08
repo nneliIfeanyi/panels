@@ -41,7 +41,7 @@
             <?php foreach($data['all_users'] as $user) : ?>
                 <div class="col-md-4">
                     <div class="card mb-3 border-light shadow" style="height: auto;">
-                        <div class="card-body">
+                        <div class="card-body" data-bs-toggle="tooltip" data-bs-title="<?php echo $user->email ?>">
                             <div class="d-flex gap-3">
                                 <div class="user-img">
                                     <img src="<?= URLROOT.'/'.$user->photo;?>" style="height: 100px;width:95px;border-radius: 50%;">
