@@ -7,9 +7,12 @@
       <h2 class="text-center">Update Profile</h2>
       <!-- Profile Pic is here below -->
       <div class="mx-auto">
-       <a href="<?php echo URLROOT; ?>/users/update_pic"><img src="<?= URLROOT.'/'.$data['user']->photo;?>" style="height: 170px;border-radius: 50%;"></a>
+        <div class="w-100">
+          <a href="<?php echo URLROOT; ?>/users/update_pic"><img src="<?= URLROOT.'/'.$data['user']->photo;?>" style="height: 170px;border-radius: 50%;"></a>
+        </div>
         <p><a href="<?php echo URLROOT; ?>/users/update_pic">Click to change profile pic</a></p>
       </div>
+
       <!-- Profile Pic ends here -->
 
       <form action="<?php echo URLROOT; ?>/profiles/complete/<?php echo $data['user']->id;?>" method="post">

@@ -137,7 +137,7 @@
               move_uploaded_file($photo_tmp, $file_path2);
               //compressImage($source, $destination, $quality)
               // Redirect to login
-              flash('post_added', 'Post Added');
+              flash('post_message', 'Post Added');
               redirect('posts');
             } else {
               die('Something went wrong');

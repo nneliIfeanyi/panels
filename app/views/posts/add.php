@@ -5,8 +5,10 @@ if (empty($data['user']->region) || empty($data['user']->address))
   // echo "Incomplete user profile, use this <a href='profiles'>link</a> to continue.";
   ?>
     <div class="row">
-      <div class="col-md-6 mx-auto">
-        <p class="lead">Incomplete user profile, use this <a href="<?php echo URLROOT?>/users/profile/<?php echo $data['user']->id;?>">link</a> to continue.</p>
+      <div class="col-md-6 mx-auto mt-5">
+        <div class="card p-4">
+          <p class="lead">Incomplete user profile, use this <a href="<?php echo URLROOT?>/users/profile/<?php echo $data['user']->id;?>">link</a> to continue.</p>
+        </div>
       </div>
     </div>
   <?php

@@ -38,7 +38,8 @@
             <button type="submit" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Unlike"><i class="text-danger fa fa-thumbs-down fa-2x" aria-hidden="true"></i></button>
           </form>
           <a href="<?php echo URLROOT;?>/users" data-bs-toggle="tooltip" data-bs-title="Comment" class="btn btn-sm me-2"><i class="fa fa-comment text-primary fa-2x" aria-hidden="true"></i></a>
-          <a class="btn btn-sm" href="<?php echo URLROOT; ?>/#" data-bs-toggle="tooltip" data-bs-title="Call <?php echo $data['user']->name; ?>"><i class="fa fa-phone text-primary fa-2x" aria-hidden="true"></i></a>
+
+          <a class="btn btn-sm" href="tel:<?php echo $data['user']->phone; ?>" data-bs-toggle="tooltip" data-bs-title="Call <?php echo $data['user']->name; ?>"><i class="fa fa-phone text-primary fa-2x" aria-hidden="true"></i></a>
         </div>
       </div>
 
