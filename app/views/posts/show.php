@@ -26,7 +26,11 @@
       <div class="bg-secondary text-white p-2 mb-3">
         <span class="fw-bold"> Posted:</span> &nbsp;<?php echo to_time_ago($post_time); ?> by <span class="fw-bold text-white"><?php echo $data['user']->name; ?></span>
       </div>
-
+      <div class="fw-bold text-secondary">
+        <?php if (!empty($data['post']->price)) {
+          echo '&#8358;'.$data['post']->price;
+        }?>
+      </div>
       <p><?php echo $data['post']->body; ?></p>
 
       <div class="d-flex justify-content-start">

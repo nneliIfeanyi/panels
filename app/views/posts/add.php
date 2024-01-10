@@ -1,21 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; 
-
-if (empty($data['user']->region) || empty($data['user']->address)) 
-{
-  // echo "Incomplete user profile, use this <a href='profiles'>link</a> to continue.";
-  ?>
-    <div class="row">
-      <div class="col-md-6 mx-auto mt-5">
-        <div class="card p-4">
-          <p class="lead">Incomplete user profile, use this <a href="<?php echo URLROOT?>/users/profile/<?php echo $data['user']->id;?>">link</a> to continue.</p>
-        </div>
-      </div>
-    </div>
-  <?php
-}
-else
-{
- ?>
+<?php require APPROOT . '/views/inc/header.php'; ?>
 
   <a href="<?php echo URLROOT; ?>" class="btn btn-light"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
       <div class="card card-body shadow  mt-5">
@@ -29,9 +12,14 @@ else
           </div> -->
 
           <div class="form-group mb-2">
-            <label>Image File (optional)</label>
+            <label>Image File</label>
             <input type="file" class="form-control form-control-lg" name="photo" <?php echo $data['photo']; ?>>
             <span class="text-danger"><?php echo $data['photo_err']; ?></span>
+          </div>  
+          <div class="form-group mb-2">
+            <label>Price</label>
+            <input type="number" class="form-control form-control-lg" name="price" <?php echo $data['price']; ?>>
+            
           </div>    
           <div class="form-group mb-3">
               <label>Add some text</label>
@@ -42,11 +30,5 @@ else
           
         </form>
       </div>
-
-  <?php
-}
-
-?>
-
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

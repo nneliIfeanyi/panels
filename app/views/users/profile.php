@@ -1,6 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-12 mx-auto">
+    	<h1>Incomplete Profile</h1>
       <div class="card card-body shadow mt-5">
 
       		<p class="h4 fw-bold">You would not be able to create a post unless you complete this step</p>
@@ -11,13 +12,14 @@
 			        <input type="number" name="phone" class="form-control form-control-lg <?php echo (!empty($data['phone_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['user']->phone; ?>">
 			        <span class="invalid-feedback"><?php echo $data['phone_err']; ?></span>
 			    </div>
-			        
+			       
 			    <div class="form-group mb-4">
 			        <label class="text-muted fs-6">Region</label>
 			        <select name="region" class="form-select">
-			            <option value="">----</option>
-			            <option value="Abuja">Abuja</option>
-                	<option value="Lagos">Lagos</option>
+			            <option value=" <?php echo $data['user']->region;?>"> <?php echo $data['user']->region;?></option>
+			            <?php foreach ($states as $states):?>
+			            	<option value="<?php echo $states->state;?>"><?php echo $states->state;?></option>
+			            <?php endforeach;?>
 			        </select>
 			    </div> 
 			    <div class="form-group mb-4">

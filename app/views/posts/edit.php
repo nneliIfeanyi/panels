@@ -11,7 +11,12 @@
               <label>Change Image</label>
               <input type="file" class="form-control form-control-lg" name="photo">
             </div>
-          </div>    
+          </div> 
+          <div class="form-group mb-2">
+            <label>Price</label>
+            <input type="number" class="form-control form-control-lg" name="price" value="<?php echo $data['price']; ?>">
+            
+          </div>   
           <div class="form-group mb-3">
               <label>Body</label>
               <textarea name="body" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['body']; ?></textarea>

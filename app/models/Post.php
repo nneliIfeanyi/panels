@@ -49,6 +49,15 @@
       return $results;
     }
 
+     // Get states
+    public function states(){
+      $this->db->query("SELECT * FROM states");
+      
+      $results = $this->db->resultset();
+
+      return $results;
+    }
+
     // Get Post By ID
     public function getPostById($id){
       $this->db->query("SELECT * FROM posts WHERE id = :id");
@@ -60,16 +69,17 @@
       return $row;
     }
 
-    // Add Post
+    // Add Post with image
     public function addPost($data){
       // Prepare Query
-      $this->db->query('INSERT INTO posts (post_img, user_id, body) 
-      VALUES (:photo, :user_id, :body)');
+      $this->db->query('INSERT INTO posts (post_img, user_id, body, price) 
+      VALUES (:photo, :user_id, :body, :price)');
 
       // Bind Values
       $this->db->bind(':photo', $data['photo']);
       $this->db->bind(':user_id', $data['user_id']);
       $this->db->bind(':body', $data['body']);
+      $this->db->bind(':price', $data['price']);
       
       //Execute
       if($this->db->execute()){
@@ -79,15 +89,16 @@
       }
     }
 
-    // Add Post
+    // Add Post without image
     public function addPost2($data){
       // Prepare Query
-      $this->db->query('INSERT INTO posts (user_id, body) 
-      VALUES (:user_id, :body)');
+      $this->db->query('INSERT INTO posts (user_id, body,price) 
+      VALUES (:user_id, :body, :price)');
 
       // Bind Values
       $this->db->bind(':user_id', $data['user_id']);
       $this->db->bind(':body', $data['body']);
+      $this->db->bind(':price', $data['price']);
       
       //Execute
       if($this->db->execute()){
@@ -100,12 +111,13 @@
     // Update Post with photo change
     public function updatePost2($data){
       // Prepare Query
-      $this->db->query('UPDATE posts SET post_img = :photo, body = :body WHERE id = :id');
+      $this->db->query('UPDATE posts SET post_img = :photo, body = :body, price = :price WHERE id = :id');
 
       // Bind Values
       $this->db->bind(':id', $data['id']);
       $this->db->bind(':photo', $data['photo']);
       $this->db->bind(':body', $data['body']);
+      $this->db->bind(':price', $data['price']);
       
       //Execute
       if($this->db->execute()){
@@ -118,11 +130,12 @@
     // Update Post without photo change
     public function updatePost1($data){
       // Prepare Query
-      $this->db->query('UPDATE posts SET body = :body WHERE id = :id');
+      $this->db->query('UPDATE posts SET body = :body, price = :price WHERE id = :id');
 
       // Bind Values
       $this->db->bind(':id', $data['id']);
       $this->db->bind(':body', $data['body']);
+      $this->db->bind(':price', $data['price']);
       
       //Execute
       if($this->db->execute()){

@@ -35,8 +35,9 @@
             <label class="text-muted fs-6">Region</label>
             <select name="region" class="form-select">
                 <option value="<?php echo $data['user']->region;?>"><?php echo $data['user']->region;?></option>
-                <option value="Abuja">Abuja</option>
-                <option value="Lagos">Lagos</option>
+                <?php foreach ($states as $states):?>
+                    <option value="<?php echo $states->state;?>"><?php echo $states->state;?></option>
+                  <?php endforeach;?>
             </select>
         </div> 
         <div class="form-group mb-4">

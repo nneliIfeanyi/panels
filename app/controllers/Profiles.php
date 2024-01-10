@@ -1,15 +1,18 @@
 <?php
   class Profiles extends Controller{
     private $userModel;
+    private $postModel;
 
     public function __construct(){
      // Load Models
       //$this->postModel = $this->model('Post');
       $this->userModel = $this->model('User');
+      $this->postModel = $this->model('Post');
     }
 
     // Load Homepage
     public function index($id){
+    $states = $this->postModel->states();
     $user = $this->userModel->getUserById($id);
     //Set Data
     $data = [

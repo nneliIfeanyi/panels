@@ -158,7 +158,9 @@
               'body' => trim($_POST['body']),
               'price' => trim($_POST['price']),
               'user_id' => $_SESSION['user_id'],
+              'photo' => '',
               'body_err' => '',
+              'photo_err' => ''
             ];
 
             //validate body text
@@ -188,6 +190,9 @@
       else {
         //Not a post request
         $user = $this->userModel->getUserById($_SESSION['user_id']);
+        if (empty($user->region) || empty($user->phone) || empty($user->address)) {
+          redirect('users/profile/'.$user->id);
+        }
         $data = [
           'user' => $user,
           'price' => '',
@@ -219,6 +224,7 @@
           $data = [
           'id' => $id,
           'photo' => $db_img,
+          'price' => trim($_POST['price']),
           'body' => trim($_POST['body']),
           'user_id' => $_SESSION['user_id'],
           'photo_err' => '',   
@@ -252,6 +258,7 @@
         }else{
            $data = [
               'id' => $id,
+              'price' => trim($_POST['price']),
               'body' => trim($_POST['body']),
               'user_id' => $_SESSION['user_id'],  
               'body_err' => ''
@@ -293,6 +300,7 @@
           'id' => $id,
           'photo' => $post->post_img,
           'body' => $post->body,
+          'price' =>$post->price
         ];
 
         $this->view('posts/edit', $data);
