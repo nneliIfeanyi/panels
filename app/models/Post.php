@@ -35,6 +35,20 @@
       return $results;
     }
 
+     // Get all posts per user
+    public function getAssets($id){
+      $this->db->query("SELECT *, posts.id as postId, 
+                        users.id as userId
+                        FROM posts 
+                        INNER JOIN users 
+                        ON posts.user_id = users.id
+                        WHERE user_id = :id");
+      $this->db->bind(':id', $id);
+      $results = $this->db->resultset();
+
+      return $results;
+    }
+
     // Get Post By ID
     public function getPostById($id){
       $this->db->query("SELECT * FROM posts WHERE id = :id");

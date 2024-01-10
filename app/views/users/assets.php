@@ -2,17 +2,20 @@
 
   <div class="row">
     <div class="col-md-9 mx-auto">
-      <h1 class="py-3"><?php echo $data['title']?></h1>
-     <?php flash('post_message'); ?>
+      <?php if($data['user']->id == $_SESSION['user_id']) : ?>
+        <h1 class="py-3">My Assets</h1>
+      <?php else:?>
+        <h1 class="py-3"><?php echo $data['user']->name ;?>'s Assets</h1>
+      <?php endif;?>
     </div>
   </div>
 
   <!-- Search Posts Div -->
   <div class="row mb-3">
     <div class="col-md-9 mx-auto">
-      <form action="<?php echo URLROOT?>/posts" method="post">
+      <form action="<?php echo URLROOT?>" method="post">
         <div class="input-group mb-2">
-          <input type="search" class="form-control" name="search" placeholder="Begin typing to search posts...">
+          <input type="search" class="form-control" name="search" placeholder="Search assets...">
           <button type="submit" class="input-group-text px-3 bg-primary text-light">
             <i class="fa fa-fw fa-search text-white"></i> Search
           </button>
@@ -20,7 +23,7 @@
       </form>
     </div>
   </div>
-  <?php foreach($data['posts'] as $post) :?>
+  <?php foreach($data['assets'] as $post) :?>
     
     <div class="row mb-4" id="search-results">
       <div class="col-md-9 mx-auto">

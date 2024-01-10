@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div class="header mb-5">
     <div class="container mt-5">
-         <h1 class="mb-3">Users</h1>
+         <h1 class="mb-3"><?php echo $data['title']?></h1>
             <!-- <div class="col user-menu d-flex justify-content-end align-items-center">
                 <ul class="nav">
                     <li class="nav-item">
@@ -21,9 +21,9 @@
        
         <div class="row">
             <div class="col-md-4">
-               <form action="#" method="get" class="">
+               <form action="<?php echo URLROOT;?>/users" method="post">
                     <div class="input-group mb-2">
-                      <input type="text" class="form-control" name="surname" placeholder="Search Users...">
+                      <input type="text" class="form-control" name="search" placeholder="Search Users...">
                       <button type="submit" class="input-group-text px-3 bg-primary text-light">
                         <i class="fa fa-fw fa-search text-white"></i> Search
                       </button>
@@ -58,7 +58,7 @@
                             </div>
                              <p class="lead text-center">Joined <?php echo $user->created_at ?></p>
                              <div class="d-grid">
-                                <a class="btn btn-outline-secondary" href="#"><i class="fa fa-eye"></i> Veiw <?php echo $user->name; ?>'s Assets</a>
+                                <a class="btn btn-outline-secondary" href="<?php echo URLROOT;?>/users/assets/<?php echo $user->id;?>"><i class="fa fa-eye"></i> Veiw <?php echo $user->name; ?>'s Assets</a>
                              </div>
                         </div>
                        

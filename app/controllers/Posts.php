@@ -98,7 +98,7 @@
         // Sanitize POST
         $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $photo = basename($_FILES["photo"]["name"]);
-        if ($photo) {
+        if (!empty($photo)) {
           //.....
           $photo = basename($_FILES["photo"]["name"]);
           $photo_tmp = $_FILES['photo']['tmp_name'];
@@ -111,6 +111,7 @@
           //.....
           $data = [
             'photo' => $db_img,
+            'price' => trim($_POST['price']),
             'body' => trim($_POST['body']),
             'user_id' => $_SESSION['user_id'],   
             'photo_err' => '',
@@ -119,7 +120,7 @@
 
        
           // Validate image format
-          if($extension != 'png' && $extension != 'jpg'){
+          if($extension != 'png' && $extension != 'jpg' && $extension != 'jpeg' && $extension != 'gif'){
             $data['photo_err'] = 'Image format not supported..';
           }
 
@@ -155,6 +156,7 @@
         
             $data = [
               'body' => trim($_POST['body']),
+              'price' => trim($_POST['price']),
               'user_id' => $_SESSION['user_id'],
               'body_err' => '',
             ];
@@ -188,6 +190,7 @@
         $user = $this->userModel->getUserById($_SESSION['user_id']);
         $data = [
           'user' => $user,
+          'price' => '',
           'photo' => '',
           'photo_err' => '',
           'body' => '',

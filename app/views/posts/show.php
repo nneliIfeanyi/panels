@@ -53,7 +53,7 @@
           <?php else: ?>
           <hr>
           <div class="d-grid mb-5">
-            <a class="btn btn-outline-secondary" href="#"><i class="fa fa-eye"></i> Veiw <?php echo $data['user']->name; ?>'s Assets</a>
+            <a class="btn btn-outline-secondary" href="<?php echo URLROOT;?>/users/assets/<?php echo $data['user']->id; ?>"><i class="fa fa-eye"></i> Veiw <?php echo $data['user']->name; ?>'s Assets</a>
           </div>
         <?php endif; ?>
 

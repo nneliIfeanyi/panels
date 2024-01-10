@@ -1,20 +1,41 @@
 <?php
   class Users extends Controller{
     private $userModel;
+    private $postModel;
     
     public function __construct(){
       $this->userModel = $this->model('User');
+      $this->postModel = $this->model('Post');
     }
 
     public function index(){
-      $users = $this->userModel->allUsers();
-      //Set Data
-      $data = [
-        'all_users' => $users
-      ];
+      if (isset($_POST['search']) ){
+      
+         $search_input = trim($_POST['search']);
 
-      // Load homepage/index view
-      $this->view('users/index', $data);
+         $users = $this->userModel->searchUsers($search_input);
+
+          $data = [
+          'title'=> 'Showing search results for "'.$search_input.'"',
+          'all_users' => $users
+        ];
+      
+        $this->view('users/index', $data); 
+      }//end if a search request
+      else{
+
+        $users = $this->userModel->allUsers();
+        //Set Data
+        $data = [
+          'title'=> 'Users',
+          'all_users' => $users
+        ];
+
+        // Load homepage/index view
+        $this->view('users/index', $data);
+
+      }
+      
     }
 
     public function profile($id){
@@ -192,6 +213,19 @@
         // Load View
         $this->view('users/login', $data);
       }
+    }
+
+    public function assets($id){
+      $assets = $this->postModel->getAssets($id);
+      $user = $this->userModel->getUserById($id);
+      //Set Data
+      $data = [
+        'assets' => $assets,
+        'user' => $user
+      ];
+
+      // Load homepage/index view
+      $this->view('users/assets', $data);
     }
 
     public function update_pic(){

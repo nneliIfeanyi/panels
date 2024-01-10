@@ -33,6 +33,15 @@
 
       return $results;
     }
+
+    // Get searched users
+    public function searchUsers($search_input){
+      $this->db->query("SELECT * FROM users WHERE name LIKE '%$search_input%' ");
+
+      $results = $this->db->resultset();
+
+      return $results;
+    }
     // Find USer BY Email
     public function findUserByEmail($email){
       $this->db->query("SELECT * FROM users WHERE email = :email");
