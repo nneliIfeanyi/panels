@@ -14,7 +14,7 @@
       //Set Data
       $data = [
         'title' => 'Welcome To Panels',
-        'description' => 'A simple social network for GSM fellows...'
+        'description' => 'A GSM Engineering Community'
       ];
 
       // Load homepage/index view
@@ -24,7 +24,7 @@
     public function about(){
       //Set Data
       $data = [
-        'version' => '1.0.0'
+        'version' => '1.2.0'
       ];
 
       // Load about view

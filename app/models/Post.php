@@ -50,7 +50,7 @@
     }
 
      // Get states
-    public function states(){
+    public function getStates(){
       $this->db->query("SELECT * FROM states");
       
       $results = $this->db->resultset();

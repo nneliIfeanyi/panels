@@ -36,11 +36,10 @@
 
     
     <main>
-        <div class="container">
             <div class="row">
             <?php foreach($data['all_users'] as $user) : ?>
                 <div class="col-md-4">
-                    <div class="card mb-3 border-light shadow" style="height: auto;">
+                    <div class="card mb-3 border-light shadow">
                         <div class="card-body" data-bs-toggle="tooltip" data-bs-title="<?php echo $user->email ?>">
                             <div class="d-flex gap-3">
                                 <div class="user-img">
@@ -66,7 +65,6 @@
                 </div>
                 <?php endforeach; ?>
             </div>
-            <div class="fs-6 fs-italics text-center mb-2">...</div>
-        </div>
+        <div class="fs-3 text-center fw-bold mb-2">...</div>
     </main>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

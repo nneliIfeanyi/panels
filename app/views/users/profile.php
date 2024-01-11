@@ -1,10 +1,10 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div class="row">
-    <div class="col-md-12 mx-auto">
-    	<h1>Incomplete Profile</h1>
+    <div class="col-md-9 mx-auto">
+    	<h1 class="text-center">Incomplete Profile</h1>
       <div class="card card-body shadow mt-5">
 
-      		<p class="h4 fw-bold">You would not be able to create a post unless you complete this step</p>
+      		<p class="lead text-center">You would not be able to create a post unless you complete this step</p>
 
 			<form action="<?php echo URLROOT; ?>/profiles/complete/<?php echo $data['user']->id;?>" method="post"> 
 			    <div class="form-group mb-2">
@@ -17,7 +17,7 @@
 			        <label class="text-muted fs-6">Region</label>
 			        <select name="region" class="form-select">
 			            <option value=" <?php echo $data['user']->region;?>"> <?php echo $data['user']->region;?></option>
-			            <?php foreach ($states as $states):?>
+			            <?php foreach ($data['states'] as $states):?>
 			            	<option value="<?php echo $states->state;?>"><?php echo $states->state;?></option>
 			            <?php endforeach;?>
 			        </select>

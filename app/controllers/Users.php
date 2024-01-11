@@ -4,11 +4,15 @@
     private $postModel;
     
     public function __construct(){
+
       $this->userModel = $this->model('User');
       $this->postModel = $this->model('Post');
     }
 
     public function index(){
+      if(!isset($_SESSION['user_id'])){
+        redirect('users/login');
+      }
       if (isset($_POST['search']) ){
       
          $search_input = trim($_POST['search']);
@@ -39,10 +43,15 @@
     }
 
     public function profile($id){
+      if(!isset($_SESSION['user_id'])){
+        redirect('users/login');
+      }
+      $states = $this->postModel->getStates();
       $user = $this->userModel->getUserById($id);
       //Set Data
       $data = [
         'user' => $user,
+        'states' => $states
       ];
 
       // Load homepage/index view
@@ -187,6 +196,7 @@
           if($loggedInUser){
             // User Authenticated!
             $this->createUserSession($loggedInUser);
+            flash('post_message', 'Login Successfull.. You are highly Welcome '.$_SESSION['user_name']);
            
           } else {
             $data['password_err'] = 'Password incorrect.';
@@ -216,6 +226,9 @@
     }
 
     public function assets($id){
+      if(!isset($_SESSION['user_id'])){
+        redirect('users/login');
+      }
       $assets = $this->postModel->getAssets($id);
       $user = $this->userModel->getUserById($id);
       //Set Data
@@ -229,6 +242,9 @@
     }
 
     public function update_pic(){
+      if(!isset($_SESSION['user_id'])){
+        redirect('users/login');
+      }
       $user = $this->userModel->getUserById($_SESSION['user_id']);
       //Set Data
       $data = [
@@ -241,10 +257,28 @@
 
     // Create Session With User Info
     public function createUserSession($user){
+      session_destroy();
+      //Set the session timeout for about a month
+      $timeout = 2628002;
+
+      //Set the maxlifetime of the session
+      ini_set( "session.gc_maxlifetime", $timeout );
+
+      //Set the cookie lifetime of the session
+      ini_set( "session.cookie_lifetime", $timeout );
+      session_start();
       $_SESSION['user_id'] = $user->id;
       $_SESSION['user_email'] = $user->email; 
       $_SESSION['user_name'] = $user->name;
-      redirect('posts');
+      $name = $_SESSION['user_name'];
+      $name = session_name();
+      if(isset( $_COOKIE[ $name ] )) {
+          setcookie( $name, $_COOKIE[ $name ], time() + $timeout, '/' );
+
+          redirect('posts');
+      } else {
+         redirect('users/login');
+      }
     }
 
     // Logout & Destroy Session

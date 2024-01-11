@@ -12,11 +12,12 @@
 
     // Load Homepage
     public function index($id){
-    $states = $this->postModel->states();
+    $states = $this->postModel->getStates();
     $user = $this->userModel->getUserById($id);
     //Set Data
     $data = [
         'user' => $user,
+        'states' => $states
     ];
 
       // Load homepage/index view

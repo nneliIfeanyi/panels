@@ -1,4 +1,6 @@
 <?php
+
+//Start a new session
 session_start();
 
 // Flash message helper
