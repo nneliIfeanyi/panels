@@ -28,7 +28,7 @@
       </div>
       <div class="fw-bold text-secondary">
         <?php if (!empty($data['post']->price)) {
-          echo '&#8358;'.$data['post']->price;
+          echo $data['post']->price;
         }?>
       </div>
       <p><?php echo $data['post']->body; ?></p>

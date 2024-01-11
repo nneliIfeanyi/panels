@@ -14,6 +14,9 @@
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
+            <a class="nav-link">Welcome <?php echo $_SESSION['user_name'] ?></a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
           </li>
         </ul>

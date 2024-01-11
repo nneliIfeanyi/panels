@@ -17,8 +17,8 @@
             <span class="text-danger"><?php echo $data['photo_err']; ?></span>
           </div>  
           <div class="form-group mb-2">
-            <label>Price</label>
-            <input type="number" class="form-control form-control-lg" name="price" <?php echo $data['price']; ?>>
+            <label>Price | Title</label>
+            <input type="text" class="form-control form-control-lg" name="price" <?php echo $data['price']; ?>>
             
           </div>    
           <div class="form-group mb-3">

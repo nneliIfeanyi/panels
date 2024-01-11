@@ -27,7 +27,7 @@ transform: translateX(-100%);
 </style>
  
   <div class="cssmarquee">
-    <h1>We are yet to launch.. this is a test version...</h1>
+    <h1 class="fs-italics">We are yet to launch.. this is a test version...</h1>
   </div>
 
   <div class="row">
@@ -67,7 +67,7 @@ transform: translateX(-100%);
           <div class="card-body">
 
             <div class="fw-bold text-primary"><?php if (!empty($post->price)) {
-                    echo '&#8358;'.$post->price;
+                    echo $post->price;
                   }?>
             </div>
             <p class="card-text text-truncate"><?php echo $post->body;?></p>
