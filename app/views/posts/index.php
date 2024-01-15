@@ -66,11 +66,15 @@ transform: translateX(-100%);
           ?> 
           <div class="card-body">
 
-            <div class="fw-bold text-primary"><?php if (!empty($post->price)) {
-                    echo $post->price;
-                  }?>
+            <div class="fw-bold text-primary">
+              <?php 
+                if ($post->category == 'asset')
+                  { echo '&#8358;'.$post->price.'.00';}
+                else
+                  {echo $post->title;}
+              ?>
             </div>
-            <p class="card-text text-truncate"><?php echo $post->body;?></p>
+            <p class="card-text"><?php echo $post->body;?></p>
           </div>
           <a class="btn btn-secondary" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>
         </div>

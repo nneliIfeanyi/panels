@@ -8,7 +8,19 @@
         <!-- <div class="nav-item btn-group pe-3"> -->
           <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Homepage" href="<?php echo URLROOT; ?>/posts"><span class="badge bg-secondary"><i class="fa fa-home" aria-hidden="true"></i></span></a>
 
-          <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Add new post" href="<?php echo URLROOT; ?>/posts/add"><span class="badge bg-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
+          <div class="dropdown" data-bs-toggle="tooltip" data-bs-title="Add new post">
+            <a class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+            <span class="badge bg-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            </a>
+             <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a href="<?php echo URLROOT; ?>/posts/add/gist" class="dropdown-item">Create a gist</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo URLROOT; ?>/posts/add/asset" class="dropdown-item">Upload asset</a>
+                </li>
+              </ul>
+          </div>
 
           <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Users" href="<?php echo URLROOT; ?>/users"><span class="badge bg-secondary"><i class="fa fa-users" aria-hidden="true"></i></span></a>
           

@@ -93,7 +93,7 @@
     }
 
     // Add Post
-    public function add(){
+    public function add($category){
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST
         $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -111,9 +111,11 @@
           //.....
           $data = [
             'photo' => $db_img,
-            'price' => trim($_POST['price']),
+            'title' => trim($_POST['title']),
             'body' => trim($_POST['body']),
-            'user_id' => $_SESSION['user_id'],   
+            'user_id' => $_SESSION['user_id'],
+            'category' => $category, 
+            'status' => 'off',  
             'photo_err' => '',
             'body_err' => '',
           ];
@@ -156,8 +158,10 @@
         
             $data = [
               'body' => trim($_POST['body']),
-              'price' => trim($_POST['price']),
+              'title' => trim($_POST['title']),
               'user_id' => $_SESSION['user_id'],
+              'category' => $category,
+              'status' => 'off',
               'photo' => '',
               'body_err' => '',
               'photo_err' => ''
@@ -195,7 +199,8 @@
         }
         $data = [
           'user' => $user,
-          'price' => '',
+          'category' => $category,
+          'title' => '',
           'photo' => '',
           'photo_err' => '',
           'body' => '',
@@ -224,9 +229,10 @@
           $data = [
           'id' => $id,
           'photo' => $db_img,
-          'price' => trim($_POST['price']),
+          'title' => trim($_POST['title']),
           'body' => trim($_POST['body']),
           'user_id' => $_SESSION['user_id'],
+          'status' => 'off',
           'photo_err' => '',   
           'body_err' => ''
 
@@ -258,9 +264,10 @@
         }else{
            $data = [
               'id' => $id,
-              'price' => trim($_POST['price']),
+              'title' => trim($_POST['title']),
               'body' => trim($_POST['body']),
-              'user_id' => $_SESSION['user_id'],  
+              'user_id' => $_SESSION['user_id'], 
+              'status' => 'off',
               'body_err' => ''
 
             ];
@@ -298,6 +305,7 @@
 
         $data = [
           'id' => $id,
+          'post' => $post,
           'photo' => $post->post_img,
           'body' => $post->body,
           'price' =>$post->price
@@ -313,7 +321,7 @@
         //Execute
         if($this->postModel->deletePost($id)){
        
-          flash('post_message', 'Post Removed');
+          flash('post_message', 'Post Removed', 'alert alert-danger');
           redirect('posts');
           } else {
             die('Something went wrong');
