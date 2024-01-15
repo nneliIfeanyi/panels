@@ -64,7 +64,7 @@ transform: translateX(-100%);
             }
 
           ?> 
-          <div class="card-body">
+          <div class="card-body" id="<?php echo $post->id;?>">
 
             <div class="fw-bold text-primary">
               <?php 

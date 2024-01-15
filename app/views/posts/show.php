@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php';$post_time = strtotime($data['post']->created_at); ?>
   <div class="row mb-3">
       <div class="col-md-6">
-        <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+        <a href="<?php echo URLROOT; ?>/posts#<?php echo $data['post']->id;?>" class="btn btn-light"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
       </div>
       <div class="col-md-6">
         <a 
