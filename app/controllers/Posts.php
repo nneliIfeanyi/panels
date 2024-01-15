@@ -320,7 +320,6 @@
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //Execute
         if($this->postModel->deletePost($id)){
-       
           flash('post_message', 'Post Removed', 'alert alert-danger');
           redirect('posts');
           } else {

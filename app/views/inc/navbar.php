@@ -16,6 +16,14 @@
           <li class="nav-item">
             <a class="nav-link">Welcome <?php echo $_SESSION['user_name'] ?></a>
           </li>
+          <li class="nav-item btn-group">
+            <button class="btn btn-sm nav-link" data-bs-theme-value="light" data-bs-toggle="tooltip" data-bs-title="Change to light theme">
+              <span class="badge bg-secondary"><i class="fa fa-sun fa-2x" aria-hidden="true" style="color: antiquewhite;"></i></span>
+            </button>
+            <button class="btn btn-sm nav-link" data-bs-theme-value="dark" data-bs-toggle="tooltip" data-bs-title="Change to dark theme">
+             <span class="badge bg-secondary"><i class="fa fa-moon fa-2x" aria-hidden="true" style="color: antiquewhite;"></i></span>
+            </button>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
           </li>

@@ -12,7 +12,7 @@
             <a class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown">
             <span class="badge bg-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></span>
             </a>
-             <ul class="dropdown-menu">
+             <ul class="dropdown-menu dropdown-menu-dark">
                 <li class="nav-item">
                     <a href="<?php echo URLROOT; ?>/posts/add/gist" class="dropdown-item">Create a gist</a>
                 </li>
@@ -23,13 +23,6 @@
           </div>
 
           <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Users" href="<?php echo URLROOT; ?>/users"><span class="badge bg-secondary"><i class="fa fa-users" aria-hidden="true"></i></span></a>
-          
-          <!-- <button class="btn btn-sm" data-bs-theme-value="light" data-bs-toggle="tooltip" data-bs-title="Change to light theme">
-            <span class="badge bg-secondary"><i class="fa fa-sun fa-2x" aria-hidden="true" style="color: antiquewhite;"></i></span>
-          </button>
-          <button class="btn btn-sm" data-bs-theme-value="dark" data-bs-toggle="tooltip" data-bs-title="Change to dark theme">
-           <span class="badge bg-secondary"><i class="fa fa-moon fa-2x" aria-hidden="true" style="color: antiquewhite;"></i></span>
-          </button> -->
 
           <!-- <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about" data-bs-toggle="tooltip" data-bs-title="About"><span class="badge bg-secondary"><i class="fa fa-info fa-2x" aria-hidden="true"></i></span></a> -->
 
