@@ -108,16 +108,16 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-danger" id="exampleModalLabel"> This Action cannot be reveresed..</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title text-white" id="exampleModalLabel"><i class="fa fa-trash text-danger"></i> This Action cannot be reveresed..</h5>
+        <button class="close btn" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <p class="lead">Are you sure you want to delete this?</p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <div class="modal-footer d-flex justify-content-around">
+        <button type="button" class="btn btn-secondary float-start" data-bs-dismiss="modal">&times; Close</button>
         <form class="float-end" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">
           <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
         </form>

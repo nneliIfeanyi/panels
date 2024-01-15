@@ -6,7 +6,7 @@
 <?php if(isset($_SESSION['user_id'])) : ?>
 <div class="d-flex justify-content-around py-2" style="background: rgba(0, 0, 0, 0.75);">
         <!-- <div class="nav-item btn-group pe-3"> -->
-          <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Homepage" href="<?php echo URLROOT; ?>/posts"><span class="badge bg-secondary"><i class="fa fa-home" aria-hidden="true"></i></span></a>
+          <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Posts" href="<?php echo URLROOT; ?>/posts"><span class="badge bg-secondary"><i class="fa fa-home" aria-hidden="true"></i></span></a>
 
           <div class="dropdown" data-bs-toggle="tooltip" data-bs-title="Add new post">
             <a class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown">

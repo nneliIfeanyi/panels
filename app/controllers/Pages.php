@@ -14,7 +14,7 @@
       //Set Data
       $data = [
         'title' => 'Welcome To Panels',
-        'description' => 'A GSM Engineering Community'
+        'description' => 'A GSM Repair Community'
       ];
 
       // Load homepage/index view
