@@ -52,9 +52,9 @@ transform: translateX(-100%);
   </div>
   
     
-    <div class="row mb-4" id="search-results">
+    <div class="row" id="search-results">
       <?php foreach($data['posts'] as $post) :?>
-      <div class="col-md-9 mx-auto">
+      <div class="col-md-9 mx-auto mb-4">
         <div class="card shadow border border-secondary" data-bs-toggle="tooltip" data-bs-title="Posted by <?php echo $post->name; ?>">
           <?php 
 

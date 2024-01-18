@@ -30,4 +30,14 @@
       // Load about view
       $this->view('pages/about', $data);
     }
+
+    public function market_place(){
+      //Set Data
+      $data = [
+        'version' => '1.2.0'
+      ];
+
+      // Load about view
+      $this->view('pages/market_place', $data);
+    }
   }
