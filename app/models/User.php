@@ -25,6 +25,7 @@
         return false;
       }
     }
+
     // Get all users
     public function allUsers(){
       $this->db->query("SELECT * FROM users");
@@ -42,10 +43,27 @@
 
       return $results;
     }
+
     // Find USer BY Email
     public function findUserByEmail($email){
       $this->db->query("SELECT * FROM users WHERE email = :email");
       $this->db->bind(':email', $email);
+
+      $row = $this->db->single();
+
+      //Check Rows
+      if($this->db->rowCount() > 0){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+
+    // Find USer BY Username
+    public function findUserByUsername($username){
+      $this->db->query("SELECT * FROM users WHERE name = :username");
+      $this->db->bind(':username', $username);
 
       $row = $this->db->single();
 

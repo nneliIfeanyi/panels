@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php';$post_time = strtotime($data['post']->created_at); ?>
   <div class="row mb-3">
       <div class="col-md-6">
-        <a href="<?php echo URLROOT; ?>/posts#<?php echo $data['post']->id;?>" class="btn btn-light"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+        <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
       </div>
       <div class="col-md-6">
         <a 
@@ -107,19 +107,20 @@
 <div class="modal fade" id="deleteModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <!-- <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-trash text-danger"></i> This Action cannot be reveresed..</h5>
-       <!--  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+       <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button> -->
-      </div>
+        </button>
+      </div> -->
       <div class="modal-body">
+        This Action cannot be reveresed..
         <p class="lead">Do you wish to Continue?</p>
       </div>
       <div class="modal-footer d-flex justify-content-around">
         <button type="button" class="btn btn-secondary float-start" data-bs-dismiss="modal">&times; Close</button>
         <form class="float-end" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">
-          <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+          <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Yes, Continue</button>
         </form>
       </div>
     </div>

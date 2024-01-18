@@ -59,38 +59,6 @@
       $this->view('posts/show', $data);
     }
 
-    //Post likes
-    public function likes($id){
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-          $data=[
-            'post_id' => $id,
-            'user_id' => $_SESSION['user_id']
-          ];
-
-          if ($this->postModel->checkLike($id))
-          {
-            flash('like_msg', 'You already liked this post');
-            redirect('posts/show/'.$id);
-          }
-          else
-          {
-            $this->postModel->putLike($data);
-            redirect('posts/show/'.$id);
-          }
-        
-
-      }else{
-
-        $pull = $this->postModel->pull($id);
-
-        $data = [
-          'likes' => $pull, 
-        ];
-
-        $this->view('posts/show', $data);
-        }
-    }
 
     // Add Post
     public function add($category){
@@ -320,6 +288,8 @@
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //Execute
         if($this->postModel->deletePost($id)){
+          
+          $this->postModel->delete_post_likes($id);
           flash('post_message', 'Post Removed', 'alert alert-danger');
           redirect('posts');
           } else {
@@ -328,6 +298,42 @@
       } else {
         redirect('posts');
       }
+    }
+
+
+    //Post likes
+    public function likes($id){
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+          $data=[
+            'post_id' => $id,
+            'user_id' => $_SESSION['user_id'],
+            'user_name' => $_SESSION['user_name']
+          ];
+
+          if ($this->postModel->checkLike($id))
+          {
+            flash('like_msg', 'You already liked this post');
+            redirect('posts/show/'.$id);
+          }
+          else
+          {
+            $this->postModel->putLike($data);
+            flash('like_msg', 'liked');
+            redirect('posts/show/'.$id);
+          }
+        
+
+      }else{
+
+        $pull = $this->postModel->pull($id);
+
+        $data = [
+          'likes' => $pull, 
+        ];
+
+        $this->view('posts/show', $data);
+        }
     }
 
     // Delete Post likes

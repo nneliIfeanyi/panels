@@ -50,9 +50,10 @@ transform: translateX(-100%);
       </form>
     </div>
   </div>
-  <?php foreach($data['posts'] as $post) :?>
+  
     
     <div class="row mb-4" id="search-results">
+      <?php foreach($data['posts'] as $post) :?>
       <div class="col-md-9 mx-auto">
         <div class="card shadow border border-secondary" data-bs-toggle="tooltip" data-bs-title="Posted by <?php echo $post->name; ?>">
           <?php 
@@ -79,8 +80,8 @@ transform: translateX(-100%);
           <a class="btn btn-secondary" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>
         </div>
       </div>
+      <?php endforeach; ?>
     </div>
-  <?php endforeach; ?>
   <div class="fs-6 fs-italics text-center mb-2">
     <span class="spinner-border-sm spinner-border"> </span> No more posts...
   </div>

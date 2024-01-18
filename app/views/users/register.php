@@ -5,32 +5,31 @@
     <div class="card card-body shadow my-5">
       <h2>Create An Account</h2>
       <p>Please fill this form to register with us</p>
-      <form action="<?php echo URLROOT; ?>/users/register" method="post">
+      <div id="success-msg"></div>
+      <form action="" id="register_form" method="post">
         <div class="form-group mb-2">
-            <label>UserName</label>
-            <input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>">
-            <span class="invalid-feedback"><?php echo $data['name_err']; ?></span>
+            <label>User Name</label>
+            <input type="text" name="name" required data-parsley-pattern="^[a-zA-Z0-9@_# ]+$" data-parsley-trigger="keyup" class="form-control form-control-lg" value="<?php echo $data['name']; ?>">  
         </div> 
         <div class="form-group mb-2">
             <label>Email Address</label>
-            <input type="text" name="email" class="form-control form-control-lg <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['email']; ?>">
-            <span class="invalid-feedback"><?php echo $data['email_err']; ?></span>
+            <input type="text" name="email" required data-parsley-type="email" data-parsley-trigger="keyup" class="form-control form-control-lg" value="<?php echo $data['email']; ?>"> 
         </div>    
         <div class="form-group mb-2">
             <label>Password</label>
-            <input type="password" name="password" class="form-control form-control-lg <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['password']; ?>">
-            <span class="invalid-feedback"><?php echo $data['password_err']; ?></span>
+            <input type="password" name="password" id="password" required data-parsley-length="[6, 10]" data-parsley-trigger="keyup" class="form-control form-control-lg" value="<?php echo $data['password'];?>">
         </div>
         <div class="form-group">
             <label>Confirm Password</label>
-            <input type="password" name="confirm_password" class="form-control form-control-lg <?php echo (!empty($data['confirm_password_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['confirm_password']; ?>">
-            <span class="invalid-feedback"><?php echo $data['confirm_password_err']; ?></span>
+            <input type="password" name="confirm_password" data-parsley-equalto="#password" data-parsley-trigger="keyup" required class="form-control form-control-lg" value="">
+            
         </div>
 
         <div class="form-row mt-3">
           <div class="col">
-            <input type="submit" class="btn btn-primary btn-block" value="Register">
+            <input type="submit" id="submit" class="btn btn-primary btn-block" value="Register">
           </div>
+          
           <div class="col mt-3">
             <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-outline-secondary btn-block">Have an account? Login</a>
           </div>
