@@ -96,7 +96,7 @@
     public function addPost2($data){
       // Prepare Query
       $this->db->query('INSERT INTO posts (user_id, body,price, title, category, status) 
-      VALUES (:user_id, :body, :price)');
+      VALUES (:user_id, :body, :price, :title, :category, :status)');
 
       // Bind Values
       $this->db->bind(':user_id', $data['user_id']);

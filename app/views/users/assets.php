@@ -3,9 +3,9 @@
   <div class="row">
     <div class="col-md-9 mx-auto">
       <?php if($data['user']->id == $_SESSION['user_id']) : ?>
-        <h1 class="py-3">My Assets</h1>
+        <h1 class="py-3">My Posts</h1>
       <?php else:?>
-        <h1 class="py-3"><?php echo $data['user']->name ;?>'s Assets</h1>
+        <h1 class="py-3"><?php echo $data['user']->name ;?>'s Posts</h1>
       <?php endif;?>
     </div>
   </div>
@@ -23,7 +23,9 @@
       </form>
     </div>
   </div>
-  <?php foreach($data['assets'] as $post) :?>
+  <?php foreach($data['assets'] as $post) :
+    $post_time = strtotime($post->created_at);
+    ?>
     
     <div class="row mb-4" id="search-results">
       <div class="col-md-9 mx-auto">
@@ -38,6 +40,15 @@
 
           ?> 
           <div class="card-body">
+            <div class="fw-bold text-primary">
+              <?php 
+                if ($post->category == 'asset')
+                  { echo '&#8358;'.$post->price.'.00';}
+                else
+                  {echo $post->title;}
+              ?>
+            </div>
+            <span class="text-muted">Posted:</span> <span class="fw-semibold">&nbsp;<?php echo to_time_ago($post_time); ?></span><hr>
             <p class="card-text text-truncate"><?php echo $post->body;?></p>
           </div>
           <a class="btn btn-secondary" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>

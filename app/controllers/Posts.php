@@ -31,15 +31,16 @@
       }//end if a search request
 
       else{
-      //load page normally  
-        $posts = $this->postModel->getPosts();
-        $data = [
-          'title' => 'Posts',
-          'posts' => $posts
-        ];
-      
-      $this->view('posts/index', $data);
-      }
+
+          //load page normally  
+            $posts = $this->postModel->getPosts();
+            $data = [
+              'title' => 'Posts',
+              'posts' => $posts,
+            ];
+          
+          $this->view('posts/index', $data);
+          }
       
     }
 

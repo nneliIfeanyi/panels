@@ -55,9 +55,9 @@
                                 </div>
 
                             </div>
-                             <p class="lead text-center">Joined <?php echo $user->created_at ?></p>
+                             <p class="lead py-2 text-center">Joined <?php echo $user->joined_at ?></p>
                              <div class="d-grid">
-                                <a class="btn btn-outline-secondary" href="<?php echo URLROOT;?>/users/assets/<?php echo $user->id;?>"><i class="fa fa-eye"></i> Veiw <?php echo $user->name; ?>'s Assets</a>
+                                <a class="btn btn-outline-secondary" href="<?php echo URLROOT;?>/users/assets/<?php echo $user->id;?>"><i class="fa fa-eye"></i> Veiw <?php echo $user->name; ?>'s Posts</a>
                              </div>
                         </div>
                        

@@ -46,17 +46,21 @@
       <p><?php echo $data['post']->body; ?></p>
 
       <div class="d-flex justify-content-start">
-        <div class="btn-group">
-          <form class="me-2" action="<?php echo URLROOT; ?>/posts/likes/<?php echo $data['post']->id; ?>" method="post">
+        <div class="btn-group px-3 border rounded-5 me-2">
+          <form class="" action="<?php echo URLROOT; ?>/posts/likes/<?php echo $data['post']->id; ?>" method="post">
             <button type="submit" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Like"><i class="text-primary fa fa-thumbs-up fa-2x" aria-hidden="true"><?php echo $data['likes']?></i></button>
           </form>
-          <form class="me-2" action="<?php echo URLROOT; ?>/posts/unlike/<?php echo $data['post']->id; ?>" method="post">
+          <form class="" action="<?php echo URLROOT; ?>/posts/unlike/<?php echo $data['post']->id; ?>" method="post">
             <button type="submit" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Unlike"><i class="text-danger fa fa-thumbs-down fa-2x" aria-hidden="true"></i></button>
           </form>
+        </div>
+        <!-- <div class="btn-group px-3 border rounded-5 me-2">
           <a href="<?php echo URLROOT;?>/users" data-bs-toggle="tooltip" data-bs-title="Comment" class="btn btn-sm me-2"><i class="fa fa-comment text-primary fa-2x" aria-hidden="true"></i></a>
-
+        </div> -->
+          <div class="btn-group px-3 border rounded-5 me-2">
           <a class="btn btn-sm" href="tel:<?php echo $data['user']->phone; ?>" data-bs-toggle="tooltip" data-bs-title="Call <?php echo $data['user']->name; ?>"><i class="fa fa-phone text-primary fa-2x" aria-hidden="true"></i></a>
         </div>
+        
       </div>
 
         <?php if($data['post']->user_id == $_SESSION['user_id']) : ?>
@@ -67,7 +71,7 @@
           <?php else: ?>
           <hr>
           <div class="d-grid mb-5">
-            <a class="btn btn-outline-secondary" href="<?php echo URLROOT;?>/users/assets/<?php echo $data['user']->id; ?>"><i class="fa fa-eye"></i> Veiw <?php echo $data['user']->name; ?>'s Assets</a>
+            <a class="btn btn-outline-secondary" href="<?php echo URLROOT;?>/users/assets/<?php echo $data['user']->id; ?>"><i class="fa fa-eye"></i> Veiw <?php echo $data['user']->name; ?>'s Posts</a>
           </div>
         <?php endif; ?>
 

@@ -58,6 +58,8 @@
       $this->view('users/profile', $data);
     }
 
+
+// User Registration With Parsley And Ajax
     public function register(){
       // Check if logged in
       if($this->isLoggedIn()){
@@ -104,7 +106,12 @@
                 ';
             
           }else{
-            die('Something went wrong');
+            echo '
+                  <div class="alert alert-success">
+                    Something went wrong... Try again later
+                  </div>
+                  
+                ';
           }
 
         }
@@ -122,6 +129,7 @@
       }
     }
 
+    //User Login Method All Server Side Validation
     public function login(){
       // Check if logged in
       if($this->isLoggedIn()){
@@ -143,11 +151,6 @@
         // Check for email
         if(empty($data['email'])){
           $data['email_err'] = 'Please enter email.';
-        }
-
-        // Check for name
-        if(empty($data['name'])){
-          $data['name_err'] = 'Please enter name.';
         }
 
         // Check for user

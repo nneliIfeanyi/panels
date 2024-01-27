@@ -27,7 +27,7 @@ transform: translateX(-100%);
 </style>
  
   <div class="cssmarquee">
-    <h1 class="fs-italics">We are yet to launch.. this is a test version...</h1>
+    <h1 class="fs-italics">We are yet to launch.. This is a test version...</h1>
   </div>
 
   <div class="row">
@@ -53,7 +53,9 @@ transform: translateX(-100%);
   
     
     <div class="row" id="search-results">
-      <?php foreach($data['posts'] as $post) :?>
+      <?php foreach($data['posts'] as $post) :
+        $post_time = strtotime($post->created_at);
+        ?>
       <div class="col-md-9 mx-auto mb-4">
         <div class="card shadow border border-secondary" data-bs-toggle="tooltip" data-bs-title="Posted by <?php echo $post->name; ?>">
           <?php 
@@ -65,7 +67,7 @@ transform: translateX(-100%);
             }
 
           ?> 
-          <div class="card-body" id="<?php echo $post->id;?>">
+          <div class="card-body">
 
             <div class="fw-bold text-primary">
               <?php 
@@ -75,9 +77,24 @@ transform: translateX(-100%);
                   {echo $post->title;}
               ?>
             </div>
+            <span class="text-muted">Posted:</span> <span class="fw-semibold">&nbsp;<?php echo to_time_ago($post_time); ?></span><hr>
             <p class="card-text"><?php echo $post->body;?></p>
           </div>
-          <a class="btn btn-secondary" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>
+          <div class="d-flex py-2">
+            <!-- 
+              LIKES BUTTON SHOWING ON THE INDEX PAGE BUT I DIDNT SUCCED
+            <div class="ms-2 btn-group border rounded-5 me-3 px-3">
+              <form class="" action="<?php echo URLROOT; ?>/posts/likes/<?php echo $post->postId; ?>" method="post">
+                <button type="submit" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Like"><i class="text-primary fa fa-thumbs-up fa-2x" aria-hidden="true"><?php echo $data['likes']?></i></button>
+              </form>
+              <form class="" action="<?php echo URLROOT; ?>/posts/unlike/<?php echo $post->postId; ?>" method="post">
+                <button type="submit" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Unlike"><i class="text-danger fa fa-thumbs-down fa-2x" aria-hidden="true"></i></button>
+              </form>
+            </div> -->
+
+            <a class="btn btn-secondary btn-sm rounded-5 w-100 mx-3" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>
+          </div>
+          
         </div>
       </div>
       <?php endforeach; ?>

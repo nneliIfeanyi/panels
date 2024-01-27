@@ -11,11 +11,12 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>
           </li>
-        </ul>
-        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#settingsModal">Settings</a>
           </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/profiles/<?php echo $_SESSION['user_id'] ?>">Welcome <?php echo $_SESSION['user_name'] ?></a>
           </li>

@@ -2,15 +2,17 @@
 
 <div class="row">
   <div class="col-md-6 mb-5 mx-auto">
-    <div class="card card-body mt-5">
+    <div class="card card-body mt-3">
       <?php flash('profile_msg');?>
-      <h2 class="text-center">Update Profile</h2>
+      <h2 class="">Update Profile</h2>
       <!-- Profile Pic is here below -->
-      <div class="mx-auto">
-        <div class="w-100">
+      <div class="row">
+        <div class="col-12">
           <a href="<?php echo URLROOT; ?>/users/update_pic"><img src="<?= URLROOT.'/'.$data['user']->photo;?>" style="height: 170px;border-radius: 50%;"></a>
         </div>
-        <p><a href="<?php echo URLROOT; ?>/users/update_pic">Click to change profile pic</a></p>
+        <div class="col-12 mx-4">
+        <p class="lead"><a href="<?php echo URLROOT; ?>/users/update_pic">Click to change profile pic</a></p>
+        </div>
       </div>
 
       <!-- Profile Pic ends here -->

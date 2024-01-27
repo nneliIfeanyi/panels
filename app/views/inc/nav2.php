@@ -8,7 +8,7 @@
         <!-- <div class="nav-item btn-group pe-3"> -->
           <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Posts" href="<?php echo URLROOT; ?>/posts"><span class="badge bg-secondary"><i class="fa fa-home" aria-hidden="true"></i></span></a>
 
-          <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Market Place" href="<?php echo URLROOT; ?>/pages/market_place"><span class="badge bg-secondary"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
+          <!-- <a class="btn btn-sm" data-bs-toggle="tooltip" data-bs-title="Market Place" href="<?php echo URLROOT; ?>/pages/market_place"><span class="badge bg-secondary"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a> -->
           
           <div class="dropdown" data-bs-toggle="tooltip" data-bs-title="Add new post">
             <a class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown">

@@ -14,7 +14,7 @@
       //Set Data
       $data = [
         'title' => 'Welcome To Panels',
-        'description' => 'A GSM Repair Community'
+        'description' => 'We Buy.. We Fix.. We Sell..'
       ];
 
       // Load homepage/index view
@@ -37,7 +37,7 @@
         'version' => '1.2.0'
       ];
 
-      // Load about view
+      // Load marketplace view
       $this->view('pages/market_place', $data);
     }
   }

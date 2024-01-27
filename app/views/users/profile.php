@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-md-9 mx-auto">
     	<h1 class="text-center">Incomplete Profile</h1>
-      <div class="card card-body shadow mt-5">
+      <div class="card card-body shadow my-5">
 
       		<p class="lead text-center">You would not be able to create a post unless you complete this step</p>
 
