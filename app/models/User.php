@@ -134,4 +134,20 @@
         return false;
       }
     }
+
+     // Delete User
+    public function deleteUser($id){
+      // Prepare Query
+      $this->db->query('DELETE FROM users WHERE id = :id');
+
+      // Bind Values
+      $this->db->bind(':id', $id);
+      
+      //Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
   }

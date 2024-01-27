@@ -1,26 +1,41 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
+<h2 class="text-center">Update Profile</h2>
 <div class="row">
-  <div class="col-md-6 mb-5 mx-auto">
-    <div class="card card-body mt-3">
-      <?php flash('profile_msg');?>
-      <h2 class="">Update Profile</h2>
-      <!-- Profile Pic is here below -->
-      <div class="row">
+  <div class="col-md-6">
+     <!-- Profile Pic is here below -->
+      <div class="row text-center">
         <div class="col-12">
           <a href="<?php echo URLROOT; ?>/users/update_pic"><img src="<?= URLROOT.'/'.$data['user']->photo;?>" style="height: 170px;border-radius: 50%;"></a>
         </div>
-        <div class="col-12 mx-4">
+        <div class="col-12 mx-2">
         <p class="lead"><a href="<?php echo URLROOT; ?>/users/update_pic">Click to change profile pic</a></p>
         </div>
       </div>
 
+      <div class="row  mt-5 pt-3 d-none d-md-block">
+         <div class="col-md-6 mx-auto border shadow border-danger">
+         <p class="h5 pt-1 fw-bold">Danger Zone</p>
+             <form class="col-12" action="<?php echo URLROOT; ?>/profiles/delete/<?php echo $data['user']->id; ?>" method="post">
+                 <input type="submit" class="btn btn-danger" value="Delete My Account">
+             </form>
+         <p class="fs-6">This action cannot be reversed...</p>
+         </div>
+       
+       </div> 
+  </div>
       <!-- Profile Pic ends here -->
 
+  <div class="col-md-6">
+    <div class="card card-body mt-3">
+      <?php flash('profile_msg');?>
+
       <form action="<?php echo URLROOT; ?>/profiles/complete/<?php echo $data['user']->id;?>" method="post">
-        <div class="form-group mb-2">
+        <div class="form-group mb-2" data-bs-toggle="tooltip" data-bs-title="User name cannot be changed..">
             <label class="text-muted fs-6">User Name</label>
-            <input type="text" class="form-control form-control-lg" disabled value="<?php echo $data['user']->name; ?>">
+            <input type="text" 
+              class="form-control form-control-lg" disabled 
+              value="<?php echo $data['user']->name; ?>" 
+            >
         </div>
         <div class="form-group mb-2">
             <label class="text-muted fs-6">Email</label>
@@ -63,5 +78,14 @@
   </div>
 </div>
 
+ <div class="row my-2 d-md-none">
+    <div class="col-md-6 border shadow border-danger">
+    <p class="h5 pt-1 fw-bold">Danger Zone</p>
+        <form class="col-12" action="<?php echo URLROOT; ?>/profiles/delete/<?php echo $data['user']->id; ?>" method="post">
+            <input type="submit" class="btn btn-danger" value="Delete My Account">
+        </form>
+    <p class="fs-6">This action cannot be reversed...</p>
+    </div>
   
+  </div> 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

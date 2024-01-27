@@ -105,4 +105,26 @@
 
   }
 
+
+  // Delete User
+    public function delete($id){
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //Execute
+        if($this->userModel->deleteUser($id)){
+          
+          $this->postModel->deleteAllUserPosts($id);
+          unset($_SESSION['user_id']);
+          unset($_SESSION['user_email']);
+          unset($_SESSION['user_name']);
+          session_destroy();
+          redirect('pages');
+          } else {
+            
+            die('Something went wrong');
+          }
+      } else {
+        redirect('posts');
+      }
+    }
+
 }

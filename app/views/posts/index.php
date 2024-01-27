@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<style>
+<!-- <style>
 .cssmarquee {
 height: 50px;
 overflow: hidden;
@@ -24,11 +24,11 @@ transform: translateX(100%);
 transform: translateX(-100%);
 }
 }
-</style>
+</style> -->
  
-  <div class="cssmarquee">
+ <!--  <div class="cssmarquee">
     <h1 class="fs-italics">We are yet to launch.. This is a test version...</h1>
-  </div>
+  </div> -->
 
   <div class="row">
     <div class="col-md-9 mx-auto">

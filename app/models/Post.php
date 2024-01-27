@@ -216,6 +216,24 @@
       }
     }
 
+
+    // Delete all Posts per user, 
+    //only triggered when a user deletes account
+    public function deleteAllUserPosts($id){
+      // Prepare Query
+      $this->db->query('DELETE FROM posts WHERE user_id = :id');
+
+      // Bind Values
+      $this->db->bind(':id', $_SESSION['user_id']);
+      
+      //Execute
+      if($this->db->execute()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
     // Delete Post likes
     public function deleteLike($id){
       // Prepare Query
@@ -232,6 +250,7 @@
         return false;
       }
     }
+
 
 
     // Delete Post likes
