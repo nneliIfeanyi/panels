@@ -5,7 +5,12 @@
 <script src="<?= URLROOT ;?>/js/theme.js"></script>
 <script src="<?= URLROOT ;?>/js/jquery.js"></script>
 <script src="<?= URLROOT ;?>/js/parsley.min.js"></script>
-
+<script>
+    $('#asset_form').parsley();
+</script>
+<script>
+    $('#asset_edit').parsley();
+</script>
 <script>
     $('#register_form').parsley();
     $('#register_form').on('submit', function(event){

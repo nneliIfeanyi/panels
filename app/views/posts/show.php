@@ -1,4 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php';$post_time = strtotime($data['post']->created_at); ?>
+
   <div class="row mb-3">
       <div class="col-md-6">
         <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
@@ -14,6 +15,7 @@
   </div>
   <div class="row mb-5">
     <div class="col-md-9 mx-auto">
+
       <?php flash('like_msg'); ?>
 
       <div class="card">
@@ -65,9 +67,11 @@
 
         <?php if($data['post']->user_id == $_SESSION['user_id']) : ?>
           <hr>
-          <a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['post']->id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+          <div class="">
+              <a class="btn btn-outline-secondary" href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['post']->id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
 
-          <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn float-end btn-outline-danger"><i class="fa fa-trash"></i> Delete</button>
+              <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn float-end btn-outline-danger"><i class="fa fa-trash"></i> Delete</button>
+          </div>
           <?php else: ?>
           <hr>
           <div class="d-grid mb-5">

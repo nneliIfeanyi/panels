@@ -18,7 +18,7 @@
              <form class="col-12" action="<?php echo URLROOT; ?>/profiles/delete/<?php echo $data['user']->id; ?>" method="post">
                  <input type="submit" class="btn btn-danger" value="Delete My Account">
              </form>
-         <p class="fs-6">This action cannot be reversed...</p>
+            <p class="fs-6">This action cannot be reversed...</p>
          </div>
        
        </div> 

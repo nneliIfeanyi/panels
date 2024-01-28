@@ -44,7 +44,7 @@
       <div class="card card-body shadow mt-5">
         <h2>Edit Asset</h2>
         <p>Change the details of this post</p>
-        <form action="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
+        <form id="asset_edit" action="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
           <div class="form-group mb-2">
               
             <img src="<?= URLROOT.'/'.$data['photo'];?>" style="height: 170px;border-radius: 10%;">
@@ -55,7 +55,7 @@
           </div> 
           <div class="form-group mb-2">
             <label>Price</label>
-            <input type="text" class="form-control form-control-lg" name="title" value="<?php echo $data['price']; ?>">
+            <input type="text"  required data-parsley-trigger="keyup" class="form-control form-control-lg" name="title" value="<?php echo $data['price']; ?>">
             
           </div>   
           <div class="form-group mb-3">
