@@ -3,8 +3,13 @@
     public $userModel;
     public $postModel;
     public function __construct(){
-      if(!isset($_SESSION['user_id'])){
-        redirect('users/login');
+     if (!isset($_COOKIE['id']) AND !isset($_COOKIE['name']) AND !isset($_COOKIE['email']) ) {
+        redirect('home');
+      }else{
+        $_SESSION['user_id'] = $_COOKIE['id'];
+        $_SESSION['user_name'] = $_COOKIE['name'];
+        $_SESSION['user_email'] = $_COOKIE['email'];
+        flash('post_message', 'Login Successfull.. You are highly Welcome '.$_SESSION['user_name']);
       }
       // Load Models
       $this->postModel = $this->model('Post');

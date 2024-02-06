@@ -4,23 +4,6 @@
      
     }
 
-    // Load Homepage
-    public function index(){
-      // If logged in, redirect to posts
-      if(isset($_SESSION['user_id'])){
-        redirect('posts');
-      }
-
-      //Set Data
-      $data = [
-        'title' => 'Welcome To Panels',
-        'description' => 'We Buy.. We Fix.. We Sell..'
-      ];
-
-      // Load homepage/index view
-      $this->view('pages/index', $data);
-    }
-
     public function about(){
       //Set Data
       $data = [
@@ -31,13 +14,5 @@
       $this->view('pages/about', $data);
     }
 
-    public function market_place(){
-      //Set Data
-      $data = [
-        'version' => '1.2.0'
-      ];
-
-      // Load marketplace view
-      $this->view('pages/market_place', $data);
-    }
+   
   }

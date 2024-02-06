@@ -6,7 +6,6 @@
     if ($data['post']->category == 'gist') {
       ?>
 
-
       <a href="<?php echo URLROOT; ?>" class="btn btn-light"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
         <div class="card card-body shadow mt-5">
           <h2>Edit Post</h2>

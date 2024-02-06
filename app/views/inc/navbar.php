@@ -1,7 +1,7 @@
 <div class="fixed-top mb-5">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand text-primary" href="<?php echo URLROOT; ?>/pages"><b><?php echo SITENAME; ?></b></a>
+    <a class="navbar-brand text-primary" href="<?php echo URLROOT; ?>/home"><b><?php echo SITENAME; ?></b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,7 +29,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="<?php echo URLROOT; ?>/pages">Home</a>
+          <a class="nav-link" href="<?php echo URLROOT; ?>/home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>

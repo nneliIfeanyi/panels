@@ -169,9 +169,10 @@
 
           if($loggedInUser){
             // User Authenticated!
-            $this->createUserSession($loggedInUser);
-            flash('post_message', 'Login Successfull.. You are highly Welcome '.$_SESSION['user_name']);
-           
+            setcookie('id', $loggedInUser->id, time()+(86400*15), '/');
+            setcookie('name', $loggedInUser->name, time()+(86400*15), '/');
+            setcookie('email', $loggedInUser->email, time()+(86400*15), '/');
+            redirect('posts');
           } else {
             $data['password_err'] = 'Password incorrect.';
             // Load View
@@ -230,33 +231,36 @@
     }
 
     // Create Session With User Info
-    public function createUserSession($user){
-      session_destroy();
-      //Set the session timeout for about a month
-      $timeout = 2628002;
+    // public function createUserSession($user){
+    //   session_destroy();
+    //   //Set the session timeout for about a month
+    //   $timeout = 2628002;
 
-      //Set the maxlifetime of the session
-      ini_set( "session.gc_maxlifetime", $timeout );
+    //   //Set the maxlifetime of the session
+    //   ini_set( "session.gc_maxlifetime", $timeout );
 
-      //Set the cookie lifetime of the session
-      ini_set( "session.cookie_lifetime", $timeout );
-      session_start();
-      $_SESSION['user_id'] = $user->id;
-      $_SESSION['user_email'] = $user->email; 
-      $_SESSION['user_name'] = $user->name;
-      $name = $_SESSION['user_name'];
-      $name = session_name();
-      if(isset( $_COOKIE[ $name ] )) {
-          setcookie( $name, $_COOKIE[ $name ], time() + $timeout, '/' );
+    //   //Set the cookie lifetime of the session
+    //   ini_set( "session.cookie_lifetime", $timeout );
+    //   session_start();
+    //   $_SESSION['user_id'] = $user->id;
+    //   $_SESSION['user_email'] = $user->email; 
+    //   $_SESSION['user_name'] = $user->name;
+    //   $name = $_SESSION['user_name'];
+    //   $name = session_name();
+    //   if(isset( $_COOKIE[ $name ] )) {
+    //       setcookie( $name, $_COOKIE[ $name ], time() + $timeout, '/' );
 
-          redirect('posts');
-      } else {
-         redirect('users/login');
-      }
-    }
+    //       redirect('posts');
+    //   } else {
+    //      redirect('users/login');
+    //   }
+    // }
 
     // Logout & Destroy Session
     public function logout(){
+      setcookie('id', $loggedInUser->id, time()-(86400*15), '/');
+      setcookie('name', $loggedInUser->name, time()-(86400*15), '/');
+      setcookie('email', $loggedInUser->email, time()-(86400*15), '/');
       unset($_SESSION['user_id']);
       unset($_SESSION['user_email']);
       unset($_SESSION['user_name']);

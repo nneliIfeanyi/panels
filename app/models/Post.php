@@ -49,7 +49,7 @@
       return $results;
     }
 
-     // Get states
+    // Get states
     public function getStates(){
       $this->db->query("SELECT * FROM states");
       
