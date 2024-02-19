@@ -29,7 +29,15 @@ transform: translateX(-100%);
  <!--  <div class="cssmarquee">
     <h1 class="fs-italics">We are yet to launch.. This is a test version...</h1>
   </div> -->
-
+<style>
+  .card-text{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
   <div class="row">
     <div class="col-md-9 mx-auto">
       <p class="display-4"><?php echo $data['title']?></p>
