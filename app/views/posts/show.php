@@ -2,7 +2,7 @@
 
   <div class="row mb-3">
       <div class="col-md-6">
-        <button onclick="history.back()"><i class="fa fa-backward" aria-hidden="true"></i> Back</button>
+        <button onclick="history.back()" class="btn btn-light"><i class="fa fa-backward" aria-hidden="true"></i> Back</button>
       </div>
       <div class="col-md-6">
         <a 
