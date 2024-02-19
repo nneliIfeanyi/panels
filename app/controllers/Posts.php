@@ -9,7 +9,6 @@
         $_SESSION['user_id'] = $_COOKIE['id'];
         $_SESSION['user_name'] = $_COOKIE['name'];
         $_SESSION['user_email'] = $_COOKIE['email'];
-        flash('post_message', 'Login Successfull.. You are highly Welcome '.$_SESSION['user_name']);
       }
       // Load Models
       $this->postModel = $this->model('Post');
