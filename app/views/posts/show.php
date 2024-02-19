@@ -2,7 +2,7 @@
 
   <div class="row mb-3">
       <div class="col-md-6">
-        <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+        <button onclick="history.back()"><i class="fa fa-backward" aria-hidden="true"></i> Back</button>
       </div>
       <div class="col-md-6">
         <a 
